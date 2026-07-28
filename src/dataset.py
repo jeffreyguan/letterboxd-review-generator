@@ -26,7 +26,9 @@ class ReviewDataset(Dataset):
         prefix_ids = self.tokenizer.encode(prefix)
         body_ids = self.tokenizer.encode(self.reviews[idx]) + [eos_id]
         ids = (prefix_ids + body_ids)[:self.max_length]
-        labels = ([-100] * len(prefix_ids) + body_ids)[:self.max_length]
+        labels = ids[1:] + [-100]  # predict the next token; last position has nothing to predict
+        for i in range(min(len(prefix_ids) - 1, len(labels))):
+            labels[i] = -100  # mask only where the target is still inside the prefix
 
         attn = [1] * len(ids)
         pad_n = self.max_length - len(ids)
