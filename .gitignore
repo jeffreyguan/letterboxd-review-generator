@@ -1,0 +1,27 @@
+# Data — raw CSVs and trained tokenizer artifacts (see README for how to get the data)
+data/
+
+# Model checkpoints
+checkpoints/
+
+# Training logs
+*.log
+train_log.txt
+
+# Generated output artifacts
+rating_distribution.png
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# macOS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
