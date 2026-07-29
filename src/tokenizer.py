@@ -88,6 +88,8 @@ class Tokenizer:
         self.special_token_strings = [
             "<|rating0.5|>",
             "<|rating1.0|>",
+            "<|rating1.5|>",
+            "<|rating2.0|>",
             "<|rating2.5|>",
             "<|rating3.0|>",
             "<|rating3.5|>",

@@ -6,7 +6,7 @@ from dataclasses import dataclass
 
 @dataclass
 class GPTConfig:
-    vocab_size: int = 8011
+    vocab_size: int = 8013
     n_embeddings: int = 128
     n_heads: int = 4
     n_layers: int = 4

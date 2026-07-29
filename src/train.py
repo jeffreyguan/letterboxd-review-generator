@@ -53,7 +53,7 @@ if __name__ == "__main__":
     val_dataset = ReviewDataset(val_titles, val_ratings, val_reviews, tokenizer)
     train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
     test_loader = DataLoader(val_dataset, batch_size=32, shuffle=False)
-    config = GPTConfig(vocab_size=8011, n_embeddings=128, n_heads=4, n_layers=4, block_size=512, dropout=0.2)
+    config = GPTConfig(vocab_size=8013, n_embeddings=128, n_heads=4, n_layers=4, block_size=512, dropout=0.2)
 
     model = ReviewGenerator(config).to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=3e-4)

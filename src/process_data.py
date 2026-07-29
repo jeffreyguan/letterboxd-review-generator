@@ -109,7 +109,7 @@ def main():
 
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("paths", nargs="*", help="CSV paths (default: data/*.csv)")
-    parser.add_argument("--vocab-size", type=int, default=2000)
+    parser.add_argument("--vocab-size", type=int, default=8000)
     parser.add_argument(
         "--out",
         default=os.path.join(data_dir, "tokenizer"),
