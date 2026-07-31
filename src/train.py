@@ -59,13 +59,23 @@ if __name__ == "__main__":
     optimizer = torch.optim.AdamW(model.parameters(), lr=3e-4)
     best_test_loss = float('inf')
     patience, wait = 3, 0
+    start_epoch = 0
 
     checkpoint_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "checkpoints")
     os.makedirs(checkpoint_dir, exist_ok=True)
+    checkpoint_path = os.path.join(checkpoint_dir, 'ckpt_best.pth')
 
-    epochs = 12
+    if os.path.exists(checkpoint_path):
+        checkpoint = torch.load(checkpoint_path, map_location=device)
+        model.load_state_dict(checkpoint['model_state_dict'])
+        optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+        best_test_loss = checkpoint['best_test_loss']
+        start_epoch = checkpoint['epoch'] + 1
+        print(f"Resumed from checkpoint at epoch {start_epoch}, best test loss {best_test_loss:.4f}")
+
+    epochs = 8
     run_start = time.time()
-    for t in range(epochs):
+    for t in range(start_epoch, start_epoch + epochs):
         print(f"Epoch {t+1}\n-------------------------------")
         epoch_start = time.time()
         train_loop(train_loader, model, optimizer)
