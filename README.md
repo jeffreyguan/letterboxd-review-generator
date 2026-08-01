@@ -10,7 +10,7 @@ The model itself is largely based on similar "from scratch" GPT models such as K
 ## Limitations
 Currently, the model that I have trained speaks "half-gibberish". The sentences are mostly gramatically correct, it knows when to use certain words, but it doesnt make a coherent review. For instance, it will call a movie a masterpiece in one sentence and then terrible in the next. 
 
-I think there are a couple reasons for this. The first is that the model size is very small right now. I chose small parameter numbers because I'm testing and also because I'm training this model on my M4 Mac Air. When I get home (and access to my RTX 5070), I'll train a larger model. 
+I think there are a couple reasons for this. The first is that the model size is very small right now. I chose small parameter numbers because I'm testing and also because I'm training this model on my M4 Mac Air. As of writing, I've only trained for 30 epochs, getting a test loss of 4.2333. When I get home (and access to my RTX 5070), I'll train a larger model. 
 
 My dataset is also probably too small to train an actually good model. The Letterboxd API is currently restricted (it states you can't use it for ML purposes or for personal projects), so I would have to scrape data myself for a more comprehensive data, which would take a lot of time. 
 
